@@ -1,0 +1,65 @@
+$btn-color: $white !default;
+$btn-bg-color: $black !default;
+$btn-bd-width: 1px !default;
+$btn-bd-color: $black !default;
+$btn-border-radius: 3px !default;
+$btn-font-size: $base-font-size !default;
+$btn-line-height: $base-line-height !default;
+$btn-font-family: $font !default;
+$btn-height: 2 !default; //rhythm unit
+$btn-tt-uppercase: false !default;
+
+//hover
+$btn-color-hover: $black !default;
+$btn-bg-color-hover: $white !default;
+$btn-bd-color-hover: $white !default;
+
+//disabled
+$btn-bd-color-disabled: transparent !default;
+$btn-color-disabled: #ccc !default;
+$btn-bg-color-disabled: #eee !default;
+
+// Button
+.b-btn {
+    @include transition(color, background-color, border-color);
+    @include btn-vertical-paddings($btn-height);
+    color: $btn-color;
+    background-color: $btn-bg-color;
+    border: $btn-bd-width solid $btn-bd-color;
+    border-radius: $btn-border-radius;
+    font-size: $btn-font-size;
+    line-height: $btn-line-height;
+    font-family: $btn-font-family;
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    padding: {
+        left: gutter(1);
+        right: gutter(1);
+    };
+
+    @if($btn-tt-uppercase) {
+        @include text-transform();
+        padding: {
+            top: btn-vertical-paddings($btn-height) + 1px;
+            bottom: btn-vertical-paddings($btn-height) - 1px;
+        };
+    }
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+
+        @media #{$large-up} {
+            color: $btn-color-hover;
+            background-color: $btn-bg-color-hover;
+            border-color: $btn-bd-color-hover;
+        }
+    }
+}
+
+// STATE
+@import '../state/btn';

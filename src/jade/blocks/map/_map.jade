@@ -1,0 +1,43 @@
+.l-map
+    .b-map
+        // если на мобилке карту нужно показывать в попапе, то ничего не меняем
+        // если карту нужно показывать всегда выпиливаем .b-map__mobile и все внутренности
+        // с .b-btn убираем data-noinit
+        .b-map__mobile
+            .b-map__img
+            .b-map__btn
+                a(href="#popup-map" data-target="#map" data-theme="map").b-btn.j-popup Развернуть карту
+        .b-map__cnt
+            //include _map-tabs
+            #map.j-map.b-map__base(data-noinit)
+            a(href="javascript:;").b-map__zoom.b-map__zoom-in +
+            a(href="javascript:;").b-map__zoom.b-map__zoom-out -
+
+#popup-map.mfp-hide.b-popup
+    a(href="javascript:;" title="Закрыть").b-popup__close Свернуть карту
+    .b-popup__cnt
+
+script.
+    window.map = {};
+    window.map['map'] = {
+        zoom: 15,
+        scrollwheel: false,
+        imageBounds: {
+            north: 59.94013265261781,
+            west : 30.421067476272583,
+            south: 59.93848275563834,
+            east : 30.425067476272583,
+            image: '/img/map/groundOverlay.png',
+            icon: '/img/map/markers/marker.png',
+            coords: [59.939337,30.423299]
+        },
+        markers: [
+            {
+                coords: [59.936552, 30.423428],
+                image : '/img/map/markers/marker.png',
+                title : 'Заголовок',
+                text  : 'Маленький текст',
+                type  : 1
+            }
+        ]
+    }

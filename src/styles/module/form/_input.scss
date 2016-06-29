@@ -1,0 +1,70 @@
+// Fields
+$input-color: $black !default;
+$input-bg-color: $white !default;
+$input-bd-width: 1px !default;
+$input-bd-color: $black !default;
+$input-border-radius: 0 !default;
+$input-font-size: 16px !default;
+$input-font-family: $font !default;
+$input-height: 2 !default; //rhythm unit
+$textarea-min-height: 5 !default; // rows
+//Placeholder
+$input-placeholder-color: #ccc !default;
+$input-placeholder-font-style: italic !default;
+$input-placeholder-font-size: $base-font-size !default;
+$input-placeholder-opacity: 1 !default;
+//Focus
+$input-bd-color-focus: #663399 !default;
+
+$input-natural-height: rhythm($input-height) - ($input-bd-width * 2);
+
+%input {
+    @include transition(border-color);
+    font-family: $input-font-family;
+    color: $input-color;
+    background-color: $input-bg-color;
+    border: $input-bd-width solid $input-bd-color;
+    font-size: $input-font-size;
+    outline: none;
+    width: 100%;
+    border-radius: $input-border-radius;
+    padding: {
+        top: 0;
+        bottom: 0;
+    };
+
+    &::placeholder {
+        color: $input-placeholder-color;
+        font-style: $input-placeholder-font-style;
+        font-size: $input-placeholder-font-size;
+        opacity: $input-placeholder-opacity;
+    }
+
+    &:focus {
+        border-color: $input-bd-color-focus;
+    }
+
+    // Отключаем стандартный крестик в полях в IE
+    &::-ms-clear {
+        display: none;
+    }
+}
+
+input {
+    &[type='text'],
+    &[type="password"],
+    &[type="tel"],
+    &[type="email"],
+    &[type="search"],
+    &[type="url"] {
+        @extend %input;
+        line-height: $input-natural-height;
+        height: $input-natural-height;
+    }
+}
+
+textarea {
+    @extend %input;
+    line-height: $base-line-height;
+    min-height: rhythm($textarea-min-height);
+}

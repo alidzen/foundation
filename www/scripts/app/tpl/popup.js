@@ -1,0 +1,1 @@
+define(["handlebars"],function(n){return n.template({compiler:[6,">= 2.0.0-beta.1"],main:function(n,e,t,p){return'<div class="b-popup">\n    <button title="Закрыть" class="b-popup__close mfp-close">&times;</button>\n    <div class="b-popup__content"></div>\n    <div class="b-popup__preloader"></div>\n</div>\n'},useData:!0})});

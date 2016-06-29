@@ -1,0 +1,121 @@
+// INCLUDE FONTS
+@include font(opensans, 'opensans_regular_cyrillic/OpenSans-Regular-webfont');
+@include font(opensans-bold, 'opensans_bold_cyrillic/OpenSans-Bold-webfont');
+@include font(opensans-italic, 'opensans_italic_cyrillic/OpenSans-Italic-webfont');
+@include font(ruble, 'ruble/ruble-webfont');
+
+// HEADINGS
+$headings:
+    (h1 24px 36px 48px),
+    (h2 20px 30px 40px),
+    (h3 19px 25px 31px),
+    (h4 18px 21px 25px),
+    (h5 17px 18px 20px),
+    (h6 16px 16px 16px) !default;
+
+$headings-tt-uppercase: false !default;
+$headings-font-family: $font !default;
+$headings-margin-trailer: 1 !default; //rhythm unit
+
+@each $heading in $headings {
+    $name: nth($heading, 1);
+    $small-size: nth($heading, 2);
+    $medium-size: nth($heading, 3);
+    $large-size: nth($heading, 4);
+
+    #{$name} {
+        font-size: $small-size;
+        line-height: $small-size * 1.5;
+        font-family: $headings-font-family;
+
+        @if ($headings-tt-uppercase) {
+            @include text-transform();
+        }
+
+        @media #{$medium-up} {
+            font-size: $medium-size;
+            line-height: $medium-size * 1.5;
+        }
+
+        @media #{$big-up} {
+            font-size: $large-size;
+            line-height: $large-size * 1.5;
+        }
+    }
+}
+
+h1,
+h2 {
+    @include margin-trailer($headings-margin-trailer);
+}
+
+// PARAGRAPH
+$paragraph-margin-bottom: 1 !default; // rhythm unit
+p {
+    @include margin-trailer($paragraph-margin-bottom);
+}
+
+// LINKS
+a {
+
+}
+
+// LISTS
+$list-color: $black !default;
+$list-font-size: $base-font-size !default;
+$list-sublist-padding-left: 4 !default; // gutter value
+$list-margin-bottom: $paragraph-margin-bottom !default; // rhythm unit
+
+.b-typo-reset {
+
+    ul ul,
+    ol ol {
+        padding-left: gutter($list-sublist-padding-left);
+    }
+
+    ul,
+    ol {
+        @include margin-trailer($list-margin-bottom);
+
+        li {
+            font-size: $list-font-size;
+            line-height: $base-line-height;
+        }
+    }
+
+    ol {
+        counter-reset: list;
+
+        li:before {
+            counter-increment: list;
+            content: counter(list);
+            color: $list-color;
+            padding-right: gutter(1);
+            float: left;
+        }
+    }
+
+    ul {
+
+        li:before {
+            content: '•';
+            color: $list-color;
+            padding-right: gutter(1);
+            float: left;
+        }
+    }
+}
+
+// b, strong
+b,
+strong {
+    font-family: $font-bold;
+    font-weight: 700;
+}
+
+// i, em
+i,
+em {
+    font-family: $font-italic;
+    font-style: italic;
+}

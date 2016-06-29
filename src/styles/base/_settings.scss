@@ -1,0 +1,71 @@
+// COLORS
+$black: #000;
+$white: #fff;
+$base-font-color: $black;
+$gray: #ccc;
+
+// TYPOGRAPHY
+// -----------------------------------
+// Fonts name
+$font: 'opensans', sans-serif;
+$font-bold: 'opensans-bold', sans-serif;
+$font-italic: 'opensans-italic', sans-serif;
+$font-ruble: 'ruble', sans-serif;
+
+// Vertical rhythm
+$base-font-size: 16px;
+$base-line-height: 10px;
+$rhythm-unit: 'px';
+$round-to-nearest-half-line: true;
+// Vertical rhythm debug
+$vertical-rhythm-debug: false;
+$vertical-rhythm-color-lines: #000;
+
+// Headings
+$headings:
+    (h1 24px 36px 48px),
+    (h2 20px 30px 40px),
+    (h3 19px 25px 31px),
+    (h4 18px 21px 25px),
+    (h5 17px 18px 20px),
+    (h6 16px 16px 16px);
+$headings-tt-uppercase: false;
+$headings-font-family: $font;
+$headings-margin-trailer: 1;
+
+
+// GRID
+// -----------------------------------
+$columns: 12;
+$gutter-width-mobile: 30px;
+$gutter-width: 40px;
+$column-width: 60px;
+
+
+// BREAKPOINTS
+// -----------------------------------
+$small-upper-bound: 670px;
+$medium-upper-bound: 959px;
+$big-upper-bound: 1279px;
+$large-upper-bound: 1439px;
+
+// Z-INDEX MANAGEMENT
+// -----------------------------------
+$z-layers: (
+        'hide': -1,
+        'zero': 0,
+        'default': 1,
+        'nav': 2,
+);
+
+
+// GLOBAL SETTINGS
+// -----------------------------------
+
+// Transition default property
+$gl-trs-duration: .3s;
+$gl-trs-function: ease;
+
+// Text transform letterspacing
+$gl-letter-spacing: .05em;
+

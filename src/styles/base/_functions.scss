@@ -1,0 +1,62 @@
+// Менеджмент z-index
+@function z($layer) {
+
+    @if not map-has-key($z-layers, $layer) {
+        @warn 'Такого слоя не существует, попробуйте проверить $z-layers в файле _settings.scss';
+    } @else {
+        @return map-get($z-layers, $layer);
+    }
+}
+
+// Возвращает инвертированое значени строны top/bottom left/right
+@function opposite-position($directions) {
+    $opposite-directions: ();
+    $direction-map: (
+        'top':    'bottom',
+        'right':  'left',
+        'bottom': 'top',
+        'left':   'right',
+        'center': 'center',
+        'ltr':    'rtl',
+        'rtl':    'ltr'
+    );
+
+    @each $direction in $directions {
+        $direction: to-lower-case($direction);
+
+        @if map-has-key($direction-map, $direction) {
+            $opposite-directions: append($opposite-directions, unquote(map-get($direction-map, $direction)));
+        } @else {
+            @warn "Противоположное направление для #{$direction} не найдено. Проверьте правильность значения";
+        }
+    }
+
+    @return $opposite-directions;
+}
+
+// Возвращает первое значение передаваемого списка
+@function lower-bound($range) {
+
+    @if length($range) <= 0 {
+        @warn 'В функцию передана некорректная переменная';
+        @return 0;
+    }
+
+    @return nth($range, 1);
+}
+
+// Возвращает последнее значение передаваемого списка
+@function upper-bound($range) {
+
+    @if length($range) < 2 {
+        @warn 'Некоректное количество элементов в передаваемом списке';
+        @return 999999999999;
+    }
+
+    @return nth($range, 2);
+}
+
+// Buton vertical paddings
+@function btn-vertical-paddings($height) {
+    @return ((rhythm($height) - $base-line-height) / 2) - $btn-bd-width;
+}
