@@ -1,6 +1,6 @@
 'use strict';
 
-define(['jquery', 'infobox', 'app/google-map', 'app/tpl/map/tooltip', 'markerClusterer', 'app/functions'], function ($, InfoBox, google, tpl, MarkerClusterer) {
+define(['jquery', 'infobox', 'app/google-map', 'app/tpl/map/tooltip', 'markerClusterer', 'app/functions'], function ($, InfoBox, google, tpl) {
     /***
      * Данные карты
      * @param {Object} $map - jQuery объект - карта
@@ -382,24 +382,6 @@ define(['jquery', 'infobox', 'app/google-map', 'app/tpl/map/tooltip', 'markerClu
                 that.$zoomIn.show();
             }
         });
-    };
-
-    /**
-     * Кластеризаци
-     * @returns {MarkerClusterer}
-     */
-    Map.prototype.initCluster = function () {
-        this.clusterOptions = {
-            styles: [{
-                url: 'http://google-maps-utility-library-v3.' + 'googlecode.com/svn/trunk/markerclusterer/images/m1.png',
-                height: 52,
-                width: 52
-            }]
-        };
-
-        this.clusterOptions = $.extend(this.clusterOptions, this.data.clusterOptions);
-
-        return new MarkerClusterer(this.map, this.markers, this.clusterOptions);
     };
 
     Map.prototype.initTabs = function () {

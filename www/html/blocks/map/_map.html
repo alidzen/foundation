@@ -1,0 +1,42 @@
+<div class="l-map">
+    <div class="b-map">
+        <!-- если на мобилке карту нужно показывать в попапе, то ничего не меняем-->
+        <!-- если карту нужно показывать всегда выпиливаем .b-map__mobile и все внутренности-->
+        <!-- с .b-btn убираем data-noinit-->
+        <div class="b-map__mobile">
+            <div class="b-map__img"></div>
+            <div class="b-map__btn"><a href="#popup-map" data-target="#map" data-theme="map" class="b-btn j-popup">Развернуть карту</a></div>
+        </div>
+        <div class="b-map__cnt">
+            <!--include _map-tabs-->
+            <div id="map" data-noinit="data-noinit" class="j-map b-map__base"></div><a href="javascript:;" class="b-map__zoom b-map__zoom-in">+</a><a href="javascript:;" class="b-map__zoom b-map__zoom-out">-</a> </div>
+    </div>
+</div>
+<div id="popup-map" class="mfp-hide b-popup"><a href="javascript:;" title="Закрыть" class="b-popup__close">Свернуть карту</a>
+    <div class="b-popup__cnt"></div>
+</div>
+<script>
+    window.map = {};
+    window.map['map'] = {
+        zoom: 15,
+        scrollwheel: false,
+        imageBounds:
+        {
+            north: 59.94013265261781,
+            west: 30.421067476272583,
+            south: 59.93848275563834,
+            east: 30.425067476272583,
+            image: '/img/map/groundOverlay.png',
+            icon: '/img/map/markers/marker.png',
+            coords: [59.939337, 30.423299]
+        },
+        markers: [
+        {
+            coords: [59.936552, 30.423428],
+            image: '/img/map/markers/marker.png',
+            title: 'Заголовок',
+            text: 'Маленький текст',
+            type: 1
+        }]
+    }
+</script>
