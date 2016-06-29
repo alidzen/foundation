@@ -67,6 +67,7 @@ paths.src.jadeBase    = paths.srcBase + '/jade';
 paths.src.jade        = paths.src.jadeBase + '/**/*.jade';
 paths.src.sprites     = paths.srcBase + '/sprites/1x/*.png';
 paths.src.sprites2x   = paths.srcBase + '/sprites/2x/*.png';
+paths.src.svg         = paths.srcBase + '/sprites/svg/*.svg';
 
 paths.buildBase     = 'www';
 paths.build         = {};
@@ -146,7 +147,7 @@ gulp.task('sprites2x', function() {
 });
 
 gulp.task('sprites-svg', function () {
-    return gulp.src('src/sprites/svg/**.svg')
+    return gulp.src(paths.src.svg)
         .pipe(svgmin(function (file) {
             return {
                 plugins: [
@@ -174,8 +175,7 @@ gulp.task('sprites-svg', function () {
                 $('[fill]').removeAttr('fill');
                 $('symbol').attr('fill','currentColor');
                 $('svg').children('defs').remove();
-            }//,
-            // parserOptions: { xmlMode: true }
+            }
         }))
         .pipe(rename("sprites.svg"))
         .pipe(gulp.dest("src/sprites/"));

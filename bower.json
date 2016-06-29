@@ -1,7 +1,7 @@
 {
-  "name": "kelnik.foundation.template",
+  "name": "foundation.template",
   "authors": [
-    "Vladimir Pavlikov <theitzamna@gmail.com>"
+    ""
   ],
   "moduleType": [
     "amd"

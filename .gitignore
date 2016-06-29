@@ -1,7 +1,3 @@
-/www/scripts/app/counters.js
-/www/counters.inc
-www/counters.inc
-www/scripts/app/counters.js
 *.DS_Store
 /node_modules/*
 /sassdoc/

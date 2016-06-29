@@ -1,4 +1,4 @@
-# Kelnik Template
+# Web Template
 
 Базовый шаблон для проектов
 
@@ -18,9 +18,9 @@
 ## Quickstart
 
 ```bash
-git clone git@gitlab.com:kelnik-internal/boilerplate.git <project-name>
+git clone git@github.com:alidzen/foundation.git <project-name>
 cd <project-name>
-npm i && bower i && gulp build
+npm i && gulp build
 ```
 
 ## Структура папок
@@ -34,6 +34,7 @@ npm i && bower i && gulp build
     * `/state` : состояния/модификаторы блоков    
     * `/sprites/1x` : картинки для спрайта в обычном качестве
     * `/sprites/2x` : картинки для спрайта в retina качестве
+    * `/sprites/svg` : svg-картинки для спрайта в svg
 * `scripts`
     * `app.js` : точка входа
     * `config.js` : настройки RequireJS

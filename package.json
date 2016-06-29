@@ -1,10 +1,10 @@
 {
-  "name": "kelnik-boilerplate",
+  "name": "boilerplate",
   "version": "2.0.0",
-  "author": "Vladimir Pavlikov <theitzamna@gmail.com>",
+  "author": "",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/kelnik-internal/boilerplate"
+    "url": "https://github.com/alidzen/foundation.git"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.9.0",
