@@ -1,0 +1,5 @@
+mixin icon(icon,w,h)
+    - w = typeof w != "undefined" ? w : 18
+    - h = typeof h != "undefined" ? h : 18
+    svg(width=w, height=h)
+        use(xlink:href='#'+icon)
